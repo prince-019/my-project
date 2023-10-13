@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readwave</title>
+    <link rel="stylesheet" href="../css/library.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/aed33b3770.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- container-fluid start -->
+    <!-- nav-sec -->
+    <div class="nav-sec">
+        <div class="lelf-sec">
+            <div class="logo">
+                <a href="">Read<span>wave</span></a>
+            </div>
+        </div>
+        <div class="mid-sec">
+            <div class="search">
+                <input type="text" class="input" placeholder="search">
+            </div>
+        </div>
+     </div>
+        <!-- nav-sec end -->
+
+<!-- sidebar-start -->
+    </div>
+    <div class="sidebar">
+        <div class="sidetext">
+            <div class="links"> <a href="#"><i class="fa-solid fa-signal sicon"></i>Favourite (0) </div>
+            <div class="links"> <a href="#"><i class="fa-solid fa-file-circle-plus sicon"></i>Reading now (1) </div>
+            <div class="links"> <a href="#"><i class="fa-solid fa-user"></i>To Read (3) </div>
+            <div class="links"> <a href="./profile.html"><i class="fa-solid fa-bell"></i>Profile</div>
+            <div class="links"> 
+                <button class="bots"onclick="signout();" >
+                    <i class="fa-solid fa-right-from-bracket sicon" ></i>Sign Out
+                </button>
+            </div>
+        </div>
+        <div class="bigbut">
+            <button onclick="profile()">
+                <h3 id="name" style="color: #6a7695; font-size:30px;">
+                <script>
+                 document.write(localStorage.getItem("name"))
+                </script></h3>
+            </button>
+        </div>
+  </div>
+  
+<!-- sidebar-end -->
+
+<!-- main-sectoin start -->
+<div class="mainsection">
+    <div class="box-section">
+           <div class="boxicons"></div>
+    </div>
+</div>
+    
+<!-- main-sectoin end -->
+</div>
+     <!-- container-fluid end -->
+
+
+     <script>
+        function profile(){
+            window.location.href = "profile.html";
+        }
+        
+        function signout(){
+            window.location.href = "login.html";
+        }
+     </script>
+</body>
+</html>

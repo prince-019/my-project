@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/aed33b3770.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <div>
+        <div id="toastbox">
+          
+        </div>
+        <div class="logo">
+            <a href="">Read<span>wave</span></a>
+        </div>
+            <div class="wrapper">
+                <form action=""> 
+                    <a href="../index.html"> <ion-icon name="backspace" class="bbtn"></ion-icon></a>
+                    <div class="hb">
+                    <h1>Login</h1>
+                    </div>
+                    <div class="input-box">
+                        <input type="email" id="email" name="email" placeholder="some@gmail.come">
+                    </div>
+                    <div class="input-box">
+                        <input type="password" id="password" name="name" placeholder="Password" required>
+                    </div>
+                    <button type="button" class="btn" onclick="saveData()"> Login</button>
+                    <div class="register-link">
+                        <p>Dont have an accoount? <a href="/Html/signup.html">Register</a></p>
+                    </div>
+                </form>
+            </div>
+</div>
+</body>
+
+<script>
+    let to
+    
+function displayToast(message) {
+    document.getElementById("toastbox").innerHTML= `  <div class="toast1"> <i class="fa-solid fa-circle-check succ"></i>${message} </div>`;
+
+      setTimeout(()=>{
+      toastbox.remove();
+     },3000)
+     }
+    function displayToast2(message) {
+    document.getElementById("toastbox").innerHTML= `  <div class="toast2"> <i class="fa-solid fa-circle-xmark fai"></i>${message} </div>`;
+      
+    setTimeout(()=>{
+      toastbox.remove();
+    },3000)
+    }
+    
+    function displayToast3(message) {
+    document.getElementById("toastbox").innerHTML= `<div class="toast3"><i class="fa-solid fa-circle-exclamation war"></i>${message} </div>`;
+    setTimeout(()=>{
+      toastbox.remove();
+    },3000)
+    }
+    
+
+  function saveData(){
+    let email, password;
+    email= document.getElementById("email").value;
+    password= document.getElementById("password").value;
+
+    let user_records=new Array();
+    user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+
+     if(email === "") {
+        displayToast3("Enter email")
+    } else if (password === "") {
+        displayToast3("Enter password")
+    }
+    else 
+    if(user_records.some((v)=>{
+            return v.email==email && v.password==password
+    })){
+        let current_user=user_records.filter((v)=>{
+        return v.email==email && v.password==password
+     })[0]
+
+     localStorage.setItem("email",current_user.email);
+     displayToast("Login successful");
+         
+     localStorage.setItem("password",current_user.password);
+     localStorage.setItem("username",current_user.username);
+
+     setTimeout(()=>{
+        window.location.href="library.html"
+     },3000)
+     
+     
+   
+    }
+    else
+        displayToast2("Login Failed");
+  }
+  
+
+</script>
+
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+
+</html>

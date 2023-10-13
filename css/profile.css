@@ -1,0 +1,250 @@
+@font-face {
+    font-family:font-1 ;
+    src: url(../asset/font/1Ptug8zYS_SKggPNyC0ITw.woff2);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+ body{
+    background:#d4dee7;
+    overflow-x: auto;
+    
+ }
+ .general-container{
+    display: flex;
+ }
+/* sidebar start */
+.logo a{
+    text-decoration: none;
+    color: #6a7695;
+    font-size: 24px;
+    font-family: font-1;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 30px;
+    position: absolute;
+}
+.logo span{
+    color: rgb(204, 48, 43);
+}
+.sidebartop{
+    background: #ffff;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    bottom: 0;
+    width: 180px;    
+}
+
+.sidebar{
+    background: rgb(204, 48, 43);
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 180px;
+    bottom: 0;
+    flex: 1;
+    box-shadow: 0px 0px 3px  rgb(0, 0, 0,0.3);
+
+    
+}
+
+
+.sidetext{
+ margin-top: 50px;
+ margin-left: 30px;
+ display: inline-block;
+}
+.links{
+    line-height: 70px;
+}
+.links a{
+    color: #ffff;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: font-1;
+}
+.links i{
+    margin-right: 4px;
+}
+.links a:hover{
+    color: #6a7695;
+}
+.bots{
+    background: none;
+    border: none;
+    color: #ffff;
+    font-weight: 600;
+    font-family: font-1;
+    font-size: 15px;
+}
+.bots:hover{
+    color: #6a7695;
+}
+
+.bigbut{
+    margin-left: 30px;
+    margin-top: 30px;
+}
+.bigbut button{
+    width: 100px;
+    height: 100px;
+    border: none;
+    border-radius: 7px;
+    background: #c3d3e0;
+}
+/* sidebar end */
+/* profilesection-start */
+.profilsec{
+    position: absolute;
+    height: 100%;
+    background: #ffff;
+    flex: 1;
+   
+    
+
+}
+.profil{
+    position: absolute;
+    background: #d4dee7;
+    top: 20%;
+    right: 2%;
+    left: 20%;
+    height: 400px;
+}
+.fs{
+    
+    height: 100%;
+    background: #ffffff;
+    
+} 
+.hand{
+    display: flex;
+    justify-content: center;
+    
+    
+}
+.hand i{
+    font-size: 80px;
+    color: #6a7695;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+h3{
+    font-size: 40px;
+    font-weight: 600;
+    font-family: font-1;
+    color: #6a7695;
+   
+}
+h4{
+    font-size: 20px;
+    font-weight: 600;
+    font-family: font-1;
+    line-height: 50px;
+    color: #6a7695;
+   
+}
+.info{
+    font-size: 18px;
+    font-weight: light;
+    font-family: font-1;
+    line-height: 50px;
+    color: rgb(204, 48, 43); 
+    border: none;
+    background: none;
+}
+p:hover{
+    color: #6a7695;
+}
+.text{
+    text-align: center;
+}
+.signout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.signout button{
+    width: 500px;
+    margin-top: 30px;
+    height: 50px;
+    border: none;
+    background: rgb(204, 48, 43);
+    color: #ffffff;
+    font-size: 20px;
+    font-family: font-1;
+    font-weight: bold;
+    border-radius: 7px;
+}
+/* profilesection-end */
+
+#popup{
+    position: fixed;
+    width: 500px;
+    background:#ffff;
+    left: 35%;
+    top: 6rem;
+  
+    padding: 20px 20px;
+    box-shadow: 0px 2px 5px rgb(0, 0, 0,0.2);
+    border-radius: 7px;
+    visibility: hidden; 
+}
+#popup.show{
+    visibility: visible;
+}
+
+
+.input-box input{
+    width: 100%;
+    padding: 15px;
+    margin-top: 50px;
+    border-radius: 7px;
+    font-size: 20px;
+    color: #6a7695;
+    font-family: font-1;
+}
+input::placeholder{
+    font-size: 20px;
+    color: #6a7695;
+    font-family: font-1;
+}
+.button{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+.button  button{
+    width: 100%;
+    background: rgb(204, 48, 43);
+    border: none;
+    padding: 15px;
+    border-radius: 7px;
+    color: #ffff;
+    font-size: 18px;
+    font-family: font-1;
+    font-weight: bold;
+}
+h2{
+    color: rgb(204, 48, 43);
+    font-family: font-1;
+    font-weight: bold;
+}
+.x-mark button{
+    font-size: 40px;
+    border: none;
+    background: none;
+    color: rgb(204, 48, 43);
+    margin-left: 70px;
+}
+.update{
+ display: flex;
+ justify-content: space-between;
+
+}
+ 

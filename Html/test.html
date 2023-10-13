@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    var APIkey = "AIzaSyD6OdJeNythA6K3tj3LOsITEcbXAou25cY";
+
+    let root = document.getElementById("root");
+      fetch("https://api.github.com/users")
+        .then(function(response){
+          console.log(response)
+          return response.json(); 
+        })
+        
+        .catch(function(reason){
+          console.log(reason)
+        })
+  </script>
+</body>
+</html>

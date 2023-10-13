@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="../css/profile.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/aed33b3770.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="general-contaner">
+   <!-- sidebar-start -->
+     <div class="sidebartop">
+            <div class="logo">
+                <a href="">Read<span>wave</span></a>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="sidetext">
+                <div class="links"> <a href="#"><i class="fa-solid fa-signal sicon"></i>Favourite (6) </div>
+                <div class="links"> <a href="#"><i class="fa-solid fa-file-circle-plus sicon"></i>Reading Now(0) </div>
+                <div class="links"> <a href="#"><i class="fa-solid fa-user"></i>To Read (1) </div>
+                <div class="links"> <a href="#"><i class="fa-solid fa-bell"></i>Profile</div>
+                <div class="links"> <a href="#"><button class="bots" onclick="signout()"><i class="fa-solid fa-right-from-bracket sicon" ></i>Sign Out</button></div>
+            </div>
+            <div class="bigbut">
+                <button>
+                    <h3 style="color: #6a7695; font-size: 35px;"><script> document.write(localStorage.getItem("name")) </script></h3>
+                </button>
+            </div>
+     </div>
+
+        <!-- sidebar-end -->
+        <!-- profie start -->
+        <div class="profilesec">
+            <div class="profil">
+                <div class="fs">
+                    <div class="hand"><i class="fa-regular fa-hand"></i></div>
+                        <div class="text">
+                    <h3>Hi there, <script> document.write(localStorage.getItem("name")) </script></h3>
+                    <h4>Thanks for Using Readwave!  </h4>
+
+                    <button class="info" onclick="openpopup();">Update Name + info</button>
+                        </div>
+                        <div class="signout">
+                            <button onclick="signout()">signout <i class="fa-solid fa-right-from-bracket sicon" ></i></button>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <!-- profile end -->
+        <!-- modal start -->
+        <div id="popup">
+            <div class="update">
+                <h2>Update Your Details</h2>
+                <div class="x-mark">
+                    <button onclick="closepopup();"><i class="fa-solid fa-circle-xmark"></i></button>
+                </div>
+            </div>
+            
+            
+            <div class="input-box">
+            <label for="name"><input type="name" id="name" name="name" placeholder="name"></label>
+            </div>
+        
+            <div class="input-box">
+                <label for=""><input type="email" id="email" name="name" placeholder="Someone@gmail.com" ></label>
+            </div>
+            
+            <div class="input-box">
+                <input type="password" id="password" name="password" placeholder="password">
+            </div>
+            <div class="button">
+                <button onclick="update()">Update</button>
+            </div>
+            
+        </div>
+  </div>
+<!-- modal end -->
+
+
+
+
+
+ <script> 
+ function signout(){
+            localStorage.removeItem("email");
+            localStorage.removeItem("password");
+            window.location.href = "login.html";
+        }
+    let popup = document.getElementById("popup");
+
+    function openpopup(){
+        popup.className = 'show'
+    }
+    function closepopup(){
+        popup.classList.remove('show') 
+     } 
+     function update(){
+        
+     }
+ </script> 
+
+</body>
+</html>

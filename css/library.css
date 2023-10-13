@@ -1,0 +1,137 @@
+@font-face {
+    font-family:font-1 ;
+    src: url(../asset/font/1Ptug8zYS_SKggPNyC0ITw.woff2);
+}
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+ body{
+    background:#d4dee7;
+    overflow-x: hidden;
+    
+ }
+ .nav-sec{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffff;
+    height: 50px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+ }
+ .lelf-sec{
+    width: 200px;
+    margin-left: 30px;
+    margin-right: 10px;
+ }
+ .input{
+    width: 300px;
+    height: 40px;
+    font-size: 15px;
+    color: #6a7695;
+    padding-left: 20px;
+    font-family:font-1 ;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0px 0px 3px  rgb(0, 0, 0,0.3);
+ }
+ .input::placeholder{
+    font-size: 15px;
+    color: #6a7695;
+    font-family:font-1 ;
+    font-weight: 600;
+ }
+ .logo a{
+    text-decoration: none;
+    color: #6a7695;
+    font-size: 24px;
+    font-family: font-1;
+    font-weight: bold;
+} 
+.mid-sec{
+    flex: 1;
+}
+.logo span{
+    color: rgb(204, 48, 43);
+}
+
+/* sidebar start */
+.sidebar{
+    background: rgb(204, 48, 43);
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 180px;
+    bottom: 0;
+    box-shadow: 0px 0px 3px  rgb(0, 0, 0,0.3);
+
+    
+}
+
+
+.sidetext{
+ margin-top: 50px;
+ margin-left: 30px;
+}
+.links{
+    line-height: 70px;
+}
+.links a{
+    color: #ffff;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: font-1;
+}
+.links i{
+    margin-right: 4px;
+}
+.links a:hover{
+    color: #6a7695;
+}
+.bots{
+    background: none;
+    border: none;
+    color: #ffff;
+    font-weight: 600;
+    font-family: font-1;
+    font-size: 15px;
+}
+.bots:hover{
+    color: #6a7695;
+}
+
+.bigbut{
+    margin-left: 30px;
+    margin-top: 30px;
+}
+.bigbut button{
+    width: 100px;
+    height: 100px;
+    border: none;
+    border-radius: 7px;
+    background: #c3d3e0;
+}
+/* sidebar end */
+/* main-sectionstart */
+  .mainsection{
+    position: relative;
+    background: aquamarine;
+    top: 50px;
+    
+  }
+  .filter{
+    position: absolute;
+    top: 50px;
+    right: 100px;
+    background: #6a7695;
+  }
+
+/* main-sectionend */

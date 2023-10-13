@@ -1,0 +1,133 @@
+@font-face{
+    font-family: font-1;
+    src: url(./asset/font/1Ptug8zYS_SKggPNyC0ITw.woff2);
+} 
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    background: #fff;
+    color: #6a7695;
+    overflow-x: hidden;
+}
+.gen-con{
+   height: 100%; 
+background: #f5f9fc;
+}
+/* navigation-section-start */
+.nav-sec{
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 40px;
+
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+}
+
+.logo a{
+    text-decoration: none;
+    color: rgb(22, 25, 32);
+    font-size: 24px;
+    font-family: font-1;
+    font-weight: bold;
+} 
+.logo span{
+    color: rgb(204, 48, 43);
+}
+
+.slbtn{
+    display: flex;
+       
+}
+.slbtn a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 17px;
+    font-family: font-1;
+    font-weight: bold;
+    border: 1px solid rgb(204, 48, 43);
+    padding: 7px 15px;
+    background: rgb(204, 48, 43);
+    border-radius: 7px;
+    border: none;
+    transition: all .3s ease-in-out;
+}
+
+.slbtn a:hover{
+    background: #6a7695;
+    border: none;
+}
+.slbtn :first-child{
+    margin-left: 10px;
+}
+/* navigation-section-end */
+
+/* hero-section-start */
+.hero-sec{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 50px;
+
+}
+.hero-text{
+  margin-left: 40px;
+  margin-top: 150px;
+}
+.hero-text p{
+    font-size: 19px;
+    font-family: font-1;
+    line-height: 30px;
+}
+.hero-img{
+ margin-left:150px;
+ margin-top: 150px;
+}
+.hero-img img{
+    width: 400px;
+}
+h1{
+    font-size: 50px;
+    font-family: font-1;
+    font-weight: bold;
+    color: #2c3241;
+}
+.gbtn button {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    font-size: 20px;
+    font-family: font-1;
+    font-weight: bold;
+    background: rgb(204, 48, 43);
+    border: none;
+    border-radius: 7px;
+    transition: all .3s ease-in-out;
+}
+.gbtn a{
+text-decoration: none;
+color: #fff;
+}
+.gbtn :hover{
+    background: #6a7695;
+}
+
+
+
+
+
+
+
+
+
+
