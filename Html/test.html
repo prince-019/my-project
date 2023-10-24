@@ -6,20 +6,82 @@
   <title>Document</title>
 </head>
 <body>
-  <div id="root"></div>
-  <script>
-    var APIkey = "AIzaSyD6OdJeNythA6K3tj3LOsITEcbXAou25cY";
+  <div id="root">
+   <div class="book">
 
-    let root = document.getElementById("root");
-      fetch("https://api.github.com/users")
-        .then(function(response){
-          console.log(response)
-          return response.json(); 
-        })
-        
-        .catch(function(reason){
-          console.log(reason)
-        })
+   </div>
+   <div class="book">
+    
+   </div>
+   <div class="book">
+    
+   </div>
+   <div class="book">
+    
+   </div>
+   <div class="book">
+    
+   </div>
+   <div class="book">
+    
+   </div>
+
+  </div>
+  <script>
+    
+    let books = document.querySelectorAll (".book");
+  fetch( ' https://openlibrary.org',{
+
+  //   method: 'GET',
+  //   headers: {
+	// 	'X-RapidAPI-Key': '19c60b81d6msh8a9140fc9dbd9c4p10d927jsnff4f1be2e101',
+	//   'X-RapidAPI-Host': 'bookstore-api.p.rapidapi.com'
+	// }
+    
+  })
+
+  .then(response => response.json())
+  .then (response => {
+    console.log(response);
+    books.forEach ((books,index) => {
+      books.innerHTML = response[index].book[title];
+
+    } )
+  })
+
+  .catch(err => {
+    console.log(err);
+  });
+
   </script>
 </body>
 </html>
+
+
+
+function displayToast(message) {
+  document.getElementById("toastbox").innerHTML= `  <div class="toast1"> <i class="fa-solid fa-circle-check succ"></i>${message} </div>`;
+
+    setTimeout(()=>{
+    toastbox.remove();
+   },3000)
+   }
+  function displayToast2(message) {
+  document.getElementById("toastbox").innerHTML= `  <div class="toast2"> <i class="fa-solid fa-circle-xmark fai"></i>${message} </div>`;
+    
+  setTimeout(()=>{
+    toastbox.remove();
+  },3000)
+  }
+  
+  function displayToast3(message) {
+  document.getElementById("toastbox").innerHTML= `<div class="toast3"><i class="fa-solid fa-circle-exclamation war"></i>${message} </div>`;
+  setTimeout(()=>{
+    toastbox.remove();
+  },3000)
+  }
+
+
+
+
+

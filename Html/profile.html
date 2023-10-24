@@ -18,16 +18,21 @@
         </div>
         <div class="sidebar">
             <div class="sidetext">
-                <div class="links"> <a href="#"><i class="fa-solid fa-signal sicon"></i>Favourite (6) </div>
-                <div class="links"> <a href="#"><i class="fa-solid fa-file-circle-plus sicon"></i>Reading Now(0) </div>
-                <div class="links"> <a href="#"><i class="fa-solid fa-user"></i>To Read (1) </div>
-                <div class="links"> <a href="#"><i class="fa-solid fa-bell"></i>Profile</div>
-                <div class="links"> <a href="#"><button class="bots" onclick="signout()"><i class="fa-solid fa-right-from-bracket sicon" ></i>Sign Out</button></div>
-            </div>
-            <div class="bigbut">
-                <button>
-                    <h3 style="color: #6a7695; font-size: 35px;"><script> document.write(localStorage.getItem("name")) </script></h3>
-                </button>
+                <div class="links"> <a href="#"><i class="fa-regular fa-square-plus"></i></i>Favourite (6) </div>
+                <div class="links"> <a href="#"><i class="fa-regular fa-newspaper"></i></i>Reading Now(0) </div>
+                <div class="links"> <a href="#"><i class="fa-regular fa-newspaper"></i>To Read (1) </div>
+                <div class="links"> <a href="./profile.html"><i class="fa-regular fa-user"></i></i>Profile</div>
+                <div class="links"> <a href="#"><button class="bots" onclick="signout()"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out</button></div>
+                   <div class="namea">  
+                        <div class="avatar">
+                            <img src="../asset/images/avatar.jpg" alt="">
+                        </div>
+                        <divn class="user">
+                            <p><script>
+                                document.write(localStorage.getItem("name"))
+                            </script></p></p>
+                        </div>
+                    </div>
             </div>
      </div>
 
@@ -46,6 +51,7 @@
                         <div class="signout">
                             <button onclick="signout()">signout <i class="fa-solid fa-right-from-bracket sicon" ></i></button>
                         </div>
+                        
                 </div>
             </div>
         </div>
@@ -98,7 +104,7 @@
         popup.classList.remove('show') 
      } 
      function update(){
-        
+        let 
      }
  </script> 
 

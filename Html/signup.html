@@ -22,13 +22,29 @@
                     <a href="../index.html"> <ion-icon name="backspace" class="bbtn"></ion-icon></a>
                     <h1>Signup</h1>
                     <div class="input-box">
-                        <input type="name" name="name" id="name" placeholder="Username" required>
+                        <input type="text" id="fname" name="fname" placeholder="username">
                     </div>
                     <div class="email">
-                        <input type="email" name="Email" id="email" placeholder="someone@gmail.come" required>
+                        <input type="email" id="email" name="email" placeholder="Email" requ>
                     </div>
                     <div class="input-box">
-                        <input type="password" name="password" id="password" placeholder="Password" required>
+                        <input type="password" id="pwd" name="pwd" placeholder="password">
+                    </div>
+                    <div class="select">
+                        <div class="select-btn" id="sel-btn">
+                            <span class="btn-text">
+                              select three subject of interest
+                            </span>
+                            <span class="arrow-down"><i class="fa-solid fa-chevron-down"></i></span>
+                        </div>
+                        <ul class="list-items">
+                            <li class="items">
+                                <span class="checkbox">
+                                    <i class="fa-solid fa-check"></i>
+                                </span>
+                                <span class="item-text">investment</span>
+                            </li>
+                        </ul>
                     </div>
                     <!-- <div class="input-box"> -->
                         <!-- <input type="text" placeholder="Confirm password" required> -->
@@ -45,70 +61,55 @@
 
 
 <script>
-    function displayToast(message) {
-    document.getElementById("toastbox").innerHTML= `  <div class="toast1"> <i class="fa-solid fa-circle-check succ"></i>${message} </div>`;
-
-      setTimeout(()=>{
-      toastbox.remove();
-     },3000)
-     }
-    function displayToast2(message) {
-    document.getElementById("toastbox").innerHTML= `  <div class="toast2"> <i class="fa-solid fa-circle-xmark fai"></i>${message} </div>`;
-      
-    setTimeout(()=>{
-      toastbox.remove();
-    },3000)
-    }
-    
-    function displayToast3(message) {
-    document.getElementById("toastbox").innerHTML= `<div class="toast3"><i class="fa-solid fa-circle-exclamation war"></i>${message} </div>`;
-    setTimeout(()=>{
-      toastbox.remove();
-    },3000)
-    }
-
-
-
-
-
-
     function saveData(){
-        let name, email, password;
-        name=document.getElementById("name").value;
+        let name, email, password, subject;
+        name=document.getElementById("fname").value;
         email=document.getElementById("email").value;
-        password=document.getElementById("password").value;
-        console.log(name+email+password);
+        password=document.getElementById("pwd").value;
+        suubject=document.getElementById("sel-btn")
+        
+         
+//   const selectElement = document.getElementById("sel");
+//   const selectedOptions = Array.from(selectElement.selectedOptions).map(option => option.value);
+//   console.log(selectedOptions);
+         
         
         
-        localStorage.setItem("name",name);
+        localStorage.setItem("fname",name);
         localStorage.setItem("email",email);
-        localStorage.setItem("password",password);
+        localStorage.setItem("pwd",password);
+        localStorage.setItem("sel-btn",subject);
 
         let user_records=new Array();
         user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
         
     if (name === "") {
-        displayToast3("Enter name")
+        alert("Enter name")
     }else if(email === "") {
-        displayToast3("Enter email")
+        alert("Enter email")
     } else if (password === "") {
-        displayToast3("Enter password")
+        alert("Enter password")
+    }
+    else if(subject ===""){
+        alert("select subject")
     }
     else 
     if(user_records.some((v)=>{
             return v.email==email
         })){
-            displayToast3("Email Already In Use");
+            alert("Email Already In Use");
         }
+        
         else{
             user_records.push({
-                "name":name,
+                "fname":name,
                 "email":email,
-                "password":password
+                "pwd":password,
+                "sel-btn":subject,
             })
             localStorage.setItem("users",JSON.stringify(user_records));
             {
-                displayToast("Account was created sucessfully");  
+                alert("Account was created sucessfully");  
             }
             setTimeout(()=>{
         window.location.href="login.html"
