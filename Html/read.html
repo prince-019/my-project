@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> To Read</title>
+    <title>Reading Now</title>
     <link rel="stylesheet" href="../css/library.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/aed33b3770.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
     <!-- container-fluid start -->
@@ -21,10 +23,59 @@
             <div class="search">
                 <input type="text" class="input" placeholder="search">
             </div>
-        </div>
+           
+            <div class="link"> 
+                <divn class="users">
+                    <p>
+                        <script>
+                            const userData = JSON.parse(localStorage.getItem("user"));
+                   if (userData && userData.length > 0) {
+                       const fname = userData[0].fname;
+                       document.write(  fname);
+                   } else {
+                       console.log("User data not found in local storage");
+                   }
+                       </script>
+                  
+                  <div class="usericon">
+                    <p><i class="fa-solid fa-user"></i></p>
+                   </div>
+              </p>
+              <button class="bots"onclick="signout();" >
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Signout
+            </button>
+            
+                </div>
+                
+            </div>
+        </div> 
         
      </div>
+     <div class="subject">
+        <div class="subject-list">
+            <div class="subjectbtn">
+                <button>Business</button>
+            </div>
+            <div class="subjectbtn">
+                <button>History</button>
+            </div>
+            <div class="subjectbtn">
+                <button>Fiction</button>
+            </div>
+            <div class="subjectbtn">
+                <button>Bedtime Story</button>
+            </div>
+            <div class="subjectbtn">
+                <button>Science</button>
+            </div>
+            <div class="subjectbtn">
+                <button>Health</button>
+            </div>
+            
+        </div>
+     </div>
      <div class="book-sec">
+    
         <div class="book-gen-c">
             <div class="book-con">
                 <div class="book">
@@ -35,12 +86,22 @@
                         Molestias animi aperiam, iusto iste</p>
                 </div>  
                 <div class="arbtn">
+                   <div class="bookicon">
                     <div class="addbtn">
-                      <button>Addbook</button>
-                    </div>
-                    <div class="rembtn">
-                      <button>Removebook</button>
-                    </div>
+                        <button><i class="fa-regular fa-heart"></i></button>
+                      </div>
+                      <div class="rembtn">
+                        <button><span class="material-symbols-outlined">
+                          chrome_reader_mode
+                          </span></button>
+                      </div> 
+                      <div class="rembtn">
+                          <button><i class="fa-regular fa-clock"></i></button>
+                        </div> 
+                        <div class="addicon">
+                            
+                        </div>
+                   </div>
                 </div>
             </div>
             <div class="book-con">
@@ -152,23 +213,29 @@
     </div>
     <div class="sidebar">
         <div class="sidetext">
-            <div class="links"> <a href="#"><i class="fa-regular fa-square-plus"></i></i>Favourite ( 6 ) </div>
-                <div class="links"> <a href="#"><i class="fa-regular fa-newspaper"></i></i>Reading Now( 1 ) </div>
-                <div class="links"> <a href="#"><i class="fa-regular fa-newspaper"></i>To Read ( 1 ) </div>
-                <div class="links"> <a href="./profile.html"><i class="fa-regular fa-user"></i></i>Profile</div>
-            <div class="links"> 
-                <button class="bots"onclick="signout();" >
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign out
-                </button>
-            </div>
+            <div class="links"> <a href="./Library.html"> <i class="fa-regular fa-clock"></i> Library  </a></div>
+            <div class="links"> <a href="./favourite.html"><i class="fa-regular fa-heart"></i> Favourite ( 6 ) </a></div>
+                <div class="links"> <a href="./reading.html"><ion-icon name="book" class="ricon" ></ion-icon> Reading Now( 1 )</a> </div>
+                <div class="links"> <a href="./read.html"><i class="fa-regular fa-clock"></i> To Read ( 1 ) </a></div>
+                <div class="links"> <a href="./profile.html"><i class="fa-regular fa-user"></i> Profile</a></div>
             <div class="namea">  
                 <div class="avatar">
                     <img src="../asset/images/avatar.jpg" alt="">
                 </div>
                 <divn class="user">
-                    <p> <script>
-                        document.write(localStorage.getItem("name"))
-                    </script></p>
+                    <p>
+                        <script>
+                            const user1Data = JSON.parse(localStorage.getItem("user"));
+                   if (userData && userData.length > 0) {
+                       const fname = userData[0].fname;
+                       document.write(  fname);
+                   } else {
+                       console.log("User data not found in local storage");
+                   }
+                       </script>
+
+                    
+              </p>
                 </div>
             </div>
             

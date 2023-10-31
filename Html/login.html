@@ -28,7 +28,7 @@
                     <div class="input-box">
                         <input type="password" id="pwd" name="pwd" placeholder="password">
                     </div>
-                    <button type="button" class="btn" onclick="saveData()"> Login</button>
+                    <button type="button" class="btn" onclick="saveData();"> Login</button>
                     <div class="register-link">
                         <p>Dont have an accoount? <a href="./signup.html">Register</a></p>
                     </div>
@@ -38,69 +38,48 @@
 </body>
 
 <script>
-    let to
-    
-function displayToast(message) {
-    document.getElementById("toastbox").innerHTML= `  <div class="toast1"> <i class="fa-solid fa-circle-check succ"></i>${message} </div>`;
+  function displayToast(message, style, icon) {
+    const toastbox = document.getElementById("toastbox");
+    const toast = document.createElement("div");
+    toast.className = style;
+    toast.innerHTML = `<i class="${icon}"></i>${message}`;
+    toastbox.appendChild(toast);
 
-      setTimeout(()=>{
-      toastbox.remove();
-     },3000)
-     }
-    function displayToast2(message) {
-    document.getElementById("toastbox").innerHTML= `  <div class="toast2"> <i class="fa-solid fa-circle-xmark fai"></i>${message} </div>`;
-      
-    setTimeout(()=>{
-      toastbox.remove();
-    },3000)
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
+}
+
+function saveData() {
+    let name, password;
+    name = document.getElementById("fname").value;
+    password = document.getElementById("pwd").value;
+    let dataBase = JSON.parse(localStorage.getItem("user"));
+
+    if (!name || !password) {
+        displayToast("Please fill in your details", "toast1", "fa-circle-check succ");
+    } else if (dataBase) {
+        let userFound = false; // Initialize a flag to track if the user is found.
+
+        for (let i = 0; i < dataBase.length; i++) {
+            if (name === dataBase[i].fname && password === dataBase[i].pwd) {
+                displayToast("Login successful", "toast1", "fa-circle-check succ");
+                setTimeout(() => {
+                window.location.href = "library.html";
+            }, 2000);
+                userFound = true; // Set the flag to true.
+                break; // Exit the loop since the user is found.
+            }
+        }
+
+        if (!userFound) {
+            displayToast("Name not found or incorrect password", "toast2", "fa-circle-xmark fai");
+        }
+    } else {
+        displayToast("User database not found", "toast3", "fa-circle-exclamation war");
     }
-    
-    function displayToast3(message) {
-    document.getElementById("toastbox").innerHTML= `<div class="toast3"><i class="fa-solid fa-circle-exclamation war"></i>${message} </div>`;
-    setTimeout(()=>{
-      toastbox.remove();
-    },3000)
-    }
-    
+}
 
-  function saveData(){
-    let email, password;
-    email= document.getElementById("email").value;
-    password= document.getElementById("password").value;
-
-    let user_records=new Array();
-    user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
-
-     if(email === "") {
-        displayToast3("Enter email")
-    } else if (password === "") {
-        displayToast3("Enter password")
-    }
-    else 
-    if(user_records.some((v)=>{
-            return v.email==email && v.password==password
-    })){
-        let current_user=user_records.filter((v)=>{
-        return v.email==email && v.password==password
-     })[0]
-
-     localStorage.setItem("email",current_user.email);
-     displayToast("Login successful");
-         
-     localStorage.setItem("password",current_user.password);
-     localStorage.setItem("username",current_user.username);
-
-     setTimeout(()=>{
-        window.location.href="library.html"
-     },3000)
-     
-     
-   
-    }
-    else
-        displayToast2("Login Failed");
-  }
-  
 
 </script>
 
