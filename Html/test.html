@@ -1,92 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <title>Open Library API Example</title>
 </head>
-<body>
-  <div id="root">
-   <div class="book">
+    <input type="text" id="searchInput" placeholder="Enter a book title">
+    <button id="searchButton">Search</button>
+    <div id="results"></div>
+    <script>
+const searchInput = document.getElementById("searchInput");
+const searchButton = document.getElementById("searchButton");
+const results = document.getElementById("results");
 
-   </div>
-   <div class="book">
-    
-   </div>
-   <div class="book">
-    
-   </div>
-   <div class="book">
-    
-   </div>
-   <div class="book">
-    
-   </div>
-   <div class="book">
-    
-   </div>
+searchButton.addEventListener("click", () => {
+    const searchTerm = searchInput.value;
 
-  </div>
-  <script>
-    
-    let books = document.querySelectorAll (".book");
-  fetch( ' https://openlibrary.org',{
+    // Construct the API URL for searching books
+    const apiUrl = `https://openlibrary.org/search.json?q=${searchTerm}`;
 
-       headers: {
-       'Access-Control-Allow-Origin: https://openlibrary.org' 
-	 }
-    
-  })
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Display the search results
+            displayResults(data);
+            console.log(data)
+        })
+        .catch(error => {
+            console.log("Error:", error);
+            results.innerHTML = "An error occurred while fetching data.";
+        });
+});
 
-  .then(response => response.json())
-  .then (response => {
-    console.log(response);
-    books.forEach ((books,index) => {
-      books.innerHTML = response[index].book[title];
+function displayResults(data) {
+    results.innerHTML = ""; // Clear previous results
 
-    } )
-  })
+    if (data.docs && data.docs.length > 0) {
+        data.docs.forEach(book => {
+            const title = book.title;
+            const author = book.author_name ? book.author_name[0] : "Author not available";
+            const year = book.first_publish_year ? book.first_publish_year : "Year not available";
 
-  .catch(err => {
-    console.log(err);
-  });
-          
+            const bookInfo = document.createElement("div");
+            bookInfo.innerHTML = `<h2>${title}</h2><p>Author: ${author}</p><p>Year: ${year}</p>`;
+            results.appendChild(bookInfo);
+        });
+    } else {
+        results.innerHTML = "No results found.";
+    }
+}
 
 
 
-
-
-
-  // function displayToast(message) {
-//   document.getElementById("toastbox").innerHTML= `  <div class="toast1"> <i class="fa-solid fa-circle-check succ"></i>${message} </div>`;
-
-//     setTimeout(()=>{
-//     toastbox.remove();
-//    },3000)
-//    }
-//   function displayToast2(message) {
-//   document.getElementById("toastbox").innerHTML= `  <div class="toast2"> <i class="fa-solid fa-circle-xmark fai"></i>${message} </div>`;
-    
-//   setTimeout(()=>{
-//     toastbox.remove();
-//   },3000)
-//   }
-  
-//   function displayToast3(message) {
-//   document.getElementById("toastbox").innerHTML= `<div class="toast3"><i class="fa-solid fa-circle-exclamation war"></i>${message} </div>`;
-//   setTimeout(()=>{
-//     toastbox.remove();
-//   },3000)
-//   }
-  </script>
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-7E05F80 E97773E
-
