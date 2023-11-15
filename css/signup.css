@@ -31,14 +31,15 @@ button{
     justify-content: center;
     margin-bottom: 30px;
 }
-.logo a{
+.logo  button{
     text-decoration: none;
-    font-size: 24px;
+    color: green;
+    font-size: 30px;
     font-family: font-3;
     font-weight: bold;
-    color: green;
+    border: none;
+    background: none;
 } 
-
 
 .bbtn{
     font-size: 20px;

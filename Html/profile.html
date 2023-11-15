@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    <link rel="stylesheet" href="../css/library.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/aed33b3770.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="../css/pro.css">
+</head>
+<body>
+    <!-- container-fluid start -->
+    <!-- nav-sec -->
+   
+
+        <!-- nav-sec end -->
+
+<!-- sidebar-start -->
+<div class="sidebar">
+    <div class="sidetext">
+        <div class="logo">
+            <a href="">Read<span>wave</span></a>
+        </div>
+        <div class="links" >  <button id="library"><span class="material-symbols-outlined">
+            signal_cellular_alt
+            </span>Library </button></div>
+        <div class="links"><button id="Favourite"><span class="material-symbols-outlined">
+            favorite
+            </span> Favourite </button></div>
+            <div class="links"> <button id="read1"><span class="material-symbols-outlined">
+                menu_book
+                </span></ion-icon>  Reading Now  </button> </div>
+            <div class="links"><button id="read2"><span class="material-symbols-outlined">
+                alarm
+                </span> To Read  </button></div>
+            <div class="lin"> <button id="profile"><i class="fa-regular fa-user"></i> Profile</button> </div>
+</div>
+
+
+</div>
+     <!-- container-fluid end -->
+
+
+     <script>
+        const lib = document.getElementById("library");
+        const fav = document.getElementById("Favourite");
+        const read1= document.getElementById("read1");
+        const read2 = document.getElementById("read2");
+        const pro = document.getElementById("profile");
+        
+        lib.addEventListener("click", function(){
+            window.location.href = "Library.html";
+        });
+
+
+        fav.addEventListener("click", function(){
+            window.location.href = "favourite.html";
+        });
+
+        read1.addEventListener("click", function(){
+            window.location.href = "Reading.html"
+        });
+        
+        read2.addEventListener("click", function(){
+            window.location.href = "Read.html"
+        });
+        
+
+        pro.addEventListener("click", function(){
+            window.location.href = "profile.html"
+        });
+
+        function profile(){
+            window.location.href = "profile.html";
+        }
+
+window.history.pushState(null, '', location.href);
+window.onpopstate = function () {
+  window.history.pushState(null, '', location.href);
+};
+ 
+function signout(){
+            window.location.href = "login.html";
+
+  window.history.pushState(null, '', location.href);
+}
+     </script>
+</body>
+</html>

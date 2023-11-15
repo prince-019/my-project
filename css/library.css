@@ -17,16 +17,25 @@
     box-sizing: border-box;
  }
  body{
-    background: #000000;   
+    background: #fff;   
+    height: 100vh;
+ }
+ .blur{
+    position: relative;
+    background: rgb(0, 0, 0 0.1);
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    backdrop-filter: blur(4  npx);
  }
  
  
  .input{
     
-    width: 700px;
+    width: 500px;
     height: 50px;
     font-size: 18px;
-    background: #6b6b6b;
+    background: #cccaca;
     color: #ffff;
     padding-left: 20px;
     font-family:font-3 ;
@@ -72,7 +81,7 @@
 
 .mid-sec{
     position: absolute;
-    left: 300px;
+    left: 360px;
     top: 20px;
 
 
@@ -83,36 +92,51 @@
 }
 .book-sec{
     position: absolute;
-    z-index: 100px;
-    left: 300px;
+    left: 360px;
     top: 90px;
+    z-index: 0;
 }
-.book-gen-c{
 
- }
 .book-con{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    gap: 40px;
     row-gap: 40px;
+    margin-top: 30px;
 
-    background: rgb(61, 61, 61);
-    box-shadow: 0px 0px 3px  rgba(252, 248, 248, 0.3);
+   
+    
+}
+.book-cont{
+    display: flex;
+    justify-content: center;
+    width:210px;
+    height: 300px;
+    background: #ebe9e9a9;
     border-radius: 7px;
 
-    
+
 }
 .book{
     display: flex;
     justify-content: center; 
+  
    
 }
+#book img{
+    width:210px;
+    height: 300px; 
+    border-radius: 10px;
+}
+
 
 .book-info{
-    background: rgb(61, 61, 61);
+    background: #ebe9e946;
     border-radius: 7px;
-    margin-top: 10px;
+    border-radius: 7px;
     height: 30px;
+    margin-top: 10px;
+    width: 200px;
 }
 .book-info p{
     display: flex;
@@ -120,7 +144,7 @@
     text-align: center;
     font-size: 20px;
     font-family: font-2;
-    color: #ffff;
+    color: black;
 }
 
 
@@ -131,7 +155,8 @@
     top: 0;
     left: 0;
     width: 250px;
-    bottom: 0;   
+    bottom: 0;  
+    z-index: 0; 
 }
 
 
@@ -156,6 +181,29 @@
     
 
 }
+.lin{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    margin: 40px auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 7px;
+}
+.lin button{
+    display: flex;
+    align-items: center;
+    color: #ffff;
+    font-size:18px;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    background: none;
+    font-family: font-2;
+}
 .links button {
     display: flex;
     align-items: center;
@@ -170,6 +218,14 @@
 .links i{
     margin-right: 4px;
 }
+.lin {
+    background: white;
+   
+}
+#library{
+    color: green;
+}
+
 .bookicon{
     display: flex;
     align-items: center;

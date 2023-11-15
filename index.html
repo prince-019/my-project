@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Read-wave</title>
     <link rel="stylesheet" href="style.css">
+     <script src="https://kit.fontawesome.com/aed33b3770.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- general-container -->
@@ -14,7 +15,21 @@
             <div class="nav">           
               <div class="nav-sec">
                 <div class="logo">
-                    <a href="">Read<span>wave</span></a>
+                    <a href="">Readwave</a>
+                </div>
+                <div class="navtext">
+                    <div>
+                        <a href="#">About us </a>
+                      </div>
+                      <div>
+                        <a href="#">Contact us </a>
+                      </div>
+                      <div>
+                        <a href="#">Blog</a>
+                      </div>
+                      <div>
+                        <a href="#">Service</a>
+                      </div>
                 </div>
                   <div class="slbtn">
                     <div>
@@ -25,50 +40,187 @@
                       </div>
                   </div>  
               </div>
-                  <div class="line"></div>  
+                
             </div>       
     </div> 
     <div class="hero-sec">
         
             <div class="hero-text">
-                <div>
+                <div class="text-item">
                 <h1>
                     Welcome To Readwave
                 </h1>
-                </div>
+                
                 <div class="para">
-                <p>
+                <p class="hero-p">
                     Nouring Hearts And minds with Educative And 
-                    Inspirational Books Digitally
+                    Inspirational Books Digitally   
                 </p>
-                    Manage your library Digitally 
-                </p>
+               
               </div>
               <div class="gbtn">
-                <button><a href="/Html/signup.html">Get started</a></button>
+                <button id="gbtn"> Get started </button>
               </div>
             </div>
-             <div class="hero-img">
-                 <img src="./asset/images/hero.image2.jpg" alt="book-image">
-             </div>
+             
     </div>
+  </div>
+     <div class="section2">
+      <div class="topbooks">
+          <h2>TOP INTERESTING</h2>
+      </div>
+      <div class="featuredbook-cont" id="featuredbook-cont">
+        <div class="book-box" >
+          <div id="fbook">
+                  <div class="img"></div>
+                  
+                     <div class="ptext"></div>
+                 
+               </div>
+          </div>
+          <div class="book-box" >
+            <div id="fbook">
+                    <div class="img"></div>
+                    
+                       <div class="ptext"></div>
+                   
+                 </div>
+            </div>
+            <div class="book-box" >
+              <div id="fbook">
+                      <div class="img"></div>
+                      
+                         <div class="ptext"></div>
+                     
+                   </div>
+              </div>
+              <div class="book-box" >
+                <div id="fbook">
+                        <div class="img"></div>
+                        
+                           <div class="ptext"></div>
+                       
+                     </div>
+                </div>
 
-    <!-- grid-display-book -->
-    <div class="book-sec">
+      </div>
+
+     </div>
+
+     <div class="section3">
+        <div class="section3-g">
+          <div class="image-sec">
+            <div class="image-sec-cont">
+              <img src="./asset/images/banner (1).JPG" alt="">
+            </div>
+           </div>
+           
+           <div class="sec3-text">
+            <div class="sec3-text-cont">
+              <div class="sec3-para">
+                <h2>About Readwave</h2>
+                  <p>
+                    Readwave is an online platfrom the provide an extensive library of books 
+                    in digital format for free to every one around the world.
+                   </p>
+                   <p>
+                    with Read-Wave you have access to all kind of educational, motivation and career book to keep you going in any areas.
+                   </p>
+                   <p>
+                    Over this years, we are still going strong in our mission to provide a valuable service to readers. Junky Books has grown into a platform where self-publishing authors have the opportunity to introduce their work to our community.
+                   </p>
+
+                   <button class="abtn">About us</button>
+              </div>
+            </div>
+           </div>
+        </div>
+     
+     </div>
+
+     .a
+
+
+
+     <div class="section4">
+      <div class="contact">
+        <div class="contact-text">
+          <h2>Contact Us</h2>
+          <p>Want to get in touch? We'd love to hear from you. Here's how you can reach us...</p>
+          <button class="conbtn"> contact us</button>
+        </div>
+        <div class="contact-img-cont">
+          <div class="contact-img">
+            <img src="./asset/images/contact-img.png" alt="">
+          </div>
+        </div>
+      </div>
+
       
+     </div>
+     
+     <footer>
+      <div class="footertext">
+       <div>
+        <div class="logo-footer">
+          <p>ReadWave</p>
     </div>
-
-
-<footer>
-
-</footer>
-
-
-
-
-
-
+   <div class="footer-p">
+    <p>© Read-Wave / All rights reserved</p>
+   </div>
+       </div>
+       <div class="icon-cont">
+        <div>
+          <i class="fa-brands fa-facebook"></i>
+        </div>
+        <div>
+          <i class="fa-brands fa-instagram"></i>
+        </div>
+        <div>
+          <i class="fa-brands fa-x-twitter"></i>
+        </div>
+       </div>
+      </div>
+     </footer>
 
     </div>
 </body>
+<script>
+  const gbtn = document.getElementById("gbtn");
+  function fun(){
+    window.location.href = "./Html/signup.html";
+  }
+  gbtn.addEventListener('click',fun);
+const fetchBookApi = async() => {
+    const response = await fetch('https://openlibrary.org/subjects/love.json');
+  const data = await response.json();
+function getRandomBook (array,count){
+    if(array){
+      let shuffledbook = array.sort(()=> Math.random());
+      return shuffledbook.slice(0,count)
+    }else {
+      console.log("no array yet")
+    }
+  }
+
+  var featuredbook = getRandomBook(data.works,4)
+  console.log(featuredbook)
+  featuredbook.forEach(elem => {
+    const booksCon = document.getElementById("featuredbook-cont");
+    booksCon.innerHTML = ""
+    booksCon.innerHTML += `
+   <div class="book-box" >
+    <div id="fbook">
+            <img src="https://covers.openlibrary.org/b/id/${elem.cover_id}-M.jpg">
+            <div class="book-info">
+                <p>${elem.title}</p>
+            </div>
+         </div>
+    </div>
+    `
+  });
+}
+
+fetchBookApi()
+</script>
 </html>

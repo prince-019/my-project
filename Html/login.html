@@ -14,11 +14,11 @@
           
         </div>
         <div class="logo">
-            <a href="">Read<span>wave</span></a>
+            <button id="logo">Readwave</button>
         </div>
             <div class="wrapper">
                 <form action=""> 
-                    <a href="../index.html"> <ion-icon name="backspace" class="bbtn"></ion-icon></a>
+           
                     <div class="hb">
                     <h1>Login</h1>
                     </div>
@@ -79,8 +79,12 @@ function saveData() {
         displayToast("User database not found", "toast3", "fa-circle-exclamation war");
     }
 }
-   
 
+
+const logo = document.getElementById("logo");
+logo.addEventListener('click',function(){
+    window.location.href = "../index.html";
+})
 
 </script>
 
