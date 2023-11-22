@@ -102,13 +102,16 @@
             {
                 const signupButton = document.querySelector(".btn");
                 signupButton.disabled = true;
+                let id = Math.floor(Math.random()*100)
                 const user = {
+                    id,
                     fname,
                     email,
                     pwd,
                 };
 
-                const dataBase = JSON.parse(localStorage.getItem("user")) || [];
+                const storedData = localStorage.getItem("user");
+                const dataBase = storedData ? JSON.parse(storedData) : [];
                 if (dataBase.some((v) => v.email === email)) {
                     displayToast("Email Already In Use", "toast2", "fa-circle-check succ");
                     signupButton.disabled = false;
@@ -124,8 +127,8 @@
                     displayToast("Account was created successfully", "toast1", "fa-circle-check succ");
                     setTimeout(() => {
                         window.location.href = "login.html";
-                    }, 1000);
-                }
+                    }, 3000);
+                    }
             }
         } 
         
@@ -133,7 +136,6 @@
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return emailRegex.test(email);
         }
-
         function handleCheckboxClick() {
             const selectedSubjects = [];
             const checkboxes = document.querySelectorAll('.check-box:checked');

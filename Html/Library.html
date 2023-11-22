@@ -14,145 +14,240 @@
 <body>
     <!-- container-fluid start -->
     <!-- nav-sec -->
-        <div class="blur">
-            
+    <div class="mid-sec">
+        <div class="search">
+            <form action="">
+                <input type="text" id="serachInput" class="input" placeholder="Search Book" onkeydown="search()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </form>
         </div>
-        <div class="mid-sec">
-            <div class="search">
-                <input type="text" id="serachInput" class="input">
-                <button id="searchButton">Search</button>
-                
-            </div>
-           
-            <div class="link"> 
-                <divn class="users">
-                    <p>
-                  <div class="usericon">
-                    <p><i class="fa-solid fa-user"></i></p>
-                   </div>
-              </p>
-              <button class=
-              "bots"onclick="signout();" >
-                <i class="fa-solid fa-arrow-right-from-bracket"></i> Signout
+        <div class="cover">
+            <button><ion-icon name="apps" class="filter-icon"></ion-icon> cover</button>
+        </div>
+        <div class="filter">
+            <button><ion-icon name="funnel" class="filter-icon"></ion-icon> List</button>
+        </div>
+        <div class="profile">
+            <button>
+                <ion-icon name="contact" class="user-icon"></ion-icon>
+                <p onclick="getNameFromLocalStorage()"></p>
             </button>
-            
-                </div>
-                
+        </div>
+    </div>
+    <!-- nav-sec end -->
+
+    <div class="book-sec">
+        <div class="book-gen-c">
+            <div class="book-con" id="book-con"></div>
+        </div>
+    </div>
+
+    <div class="blu" id="mymodal">
+        <div class="modal">
+            <div class="modal-content">
+                <h2 id="modalTitle"></h2>
+                <h2 id="modalAuthor"></h2>
+                <span class="close-btn" onclick="closeDetails()">close</span>
             </div>
-        </div> 
-        
-     </div>
-      <!-- nav-sec end -->
+        </div>
+    </div>
 
-     <div class="book-sec">
-       <div class="book-gen-c">
-          <div class="book-con" id="book-con">
-             
-           </div>
-
-           </div>
-      
-     </div>   
-<!-- sidebar-start -->
-    
+    <!-- sidebar-start -->
     <div class="sidebar">
         <div class="sidetext">
             <div class="logo">
                 <a href="">Read<span>wave</span></a>
             </div>
-            <div class="lin" >  <button id="library"><span class="material-symbols-outlined">
-                signal_cellular_alt
-                </span>Library </button></div>
-            <div class="links"><button id="Favourite"><span class="material-symbols-outlined">
-                favorite
-                </span> Favourite </button></div>
-                <div class="links"> <button id="read1"><span class="material-symbols-outlined">
-                    menu_book
-                    </span></ion-icon>  Reading Now  </button> </div>
-                <div class="links"><button id="read2"><span class="material-symbols-outlined">
-                    alarm
-                    </span> To Read  </button></div>
-                <div class="links"> <button id="profile"><i class="fa-regular fa-user"></i> Profile</button> </div>
-  </div>
-  
+            <div class="lin">
+                <button id="library" onclick="window.location.href='Library.html'">
+                    <span class="material-symbols-outlined">signal_cellular_alt</span> Library
+                </button>
+            </div>
+            <div class="links">
+                <button id="Favourite" onclick="window.location.href='favourite.html'">
+                    <span class="material-symbols-outlined">favorite</span> Favourite
+                </button>
+            </div>
+            <div class="links">
+                <button id="read1" onclick="window.location.href='reading.html'">
+                    <i class="fa-regular fa-bookmark"></i> Reading Now
+                </button>
+            </div>
+            <div class="links">
+                <button id="read2" onclick="window.location.href='read.html'">
+                    <i class="fa-solid fa-link-slash"></i>  Read
+                </button>
+            </div>
+            <div class="links">
+                <button id="profile" onclick="signOut()">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out
+                </button>
+            </div>
+        </div>
+    </div>
 
-</div>
+    <script>
+        const currentUser = localStorage.getItem("user");
 
-
- <script>
+        if (currentUser === "") {
+            window.location.href = "login.html";
+            console.log("empty");
+        } else {
+            console.log('active');
+        }
+        console.log(currentUser);
 
         const lib = document.getElementById("library");
         const fav = document.getElementById("Favourite");
-        const read1= document.getElementById("read1");
+        const read1 = document.getElementById("read1");
         const read2 = document.getElementById("read2");
         const pro = document.getElementById("profile");
-        
-        lib.addEventListener("click", function(){
+
+        lib.addEventListener("click", function () {
             window.location.href = "Library.html";
         });
 
-
-        fav.addEventListener("click", function(){
+        fav.addEventListener("click", function () {
             window.location.href = "favourite.html";
         });
 
-        read1.addEventListener("click", function(){
-            window.location.href = "Reading.html"
-        });
-        
-        read2.addEventListener("click", function(){
-            window.location.href = "Read.html"
-        });
-        
-
-        pro.addEventListener("click", function(){
-            window.location.href = "profile.html"
+        read1.addEventListener("click", function () {
+            window.location.href = "reading.html";
         });
 
-        function profile(){
-            window.location.href = "profile.html";
+        read2.addEventListener("click", function () {
+            window.location.href = "read.html";
+        });
+
+        window.history.pushState(null, '', location.href);
+
+        const fetchBookApi = async () => {
+            const response = await fetch('https://openlibrary.org/subjects/love.json');
+            const data = await response.json();
+
+            console.log(data);
+
+            data.works.forEach((elem) => {
+                const booksCon = document.getElementById("book-con");
+                const bookBox = document.createElement("div");
+                bookBox.classList.add("book-box");
+
+                bookBox.innerHTML = `
+                    <div class="book-cont" id="book-cont">
+                        <div id="book" class="mybook">
+                            <img src="https://covers.openlibrary.org/b/id/${elem.cover_id}-M.jpg">
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <p id="bname">${elem.title}</p>
+                    </div>
+                `;
+
+                booksCon.appendChild(bookBox);
+
+                const Abook = document.querySelectorAll(".mybook");
+                Abook.forEach((e) => {
+                    e.addEventListener('click', function () {
+                        const selectedIndex = Array.from(Abook).indexOf(e);
+                        const selectedObj = data.works[selectedIndex];
+                        const modal = document.getElementById("mymodal");
+                        const modalTitle = document.getElementById("modalTitle");
+                        const modalAuthor = document.getElementById("modalAuthor");
+
+                        modal.style.display = "flex";
+
+                        modalTitle.textContent = `Title: ${selectedObj.title}`;
+                        modalAuthor.textContent = `Author: ${selectedObj.authors[0].name}`;
+                    });
+                });
+            });
         }
 
+        function closeDetails() {
+            const modal = document.getElementById("mymodal");
+            modal.style.display = "none";
+        }
+
+        function signOut() {
+            localStorage.setItem("user", "");
+            window.location.reload();
+        }
+
+        fetchBookApi();
+
+ // Function to fetch data from local storage
+const getStoredData = () => {
+    const storedData = localStorage.getItem('apiData');
+    try {
+        // Try to parse the stored data as JSON
+        const parsedData = JSON.parse(storedData);
+
+        // Check if the parsed data is an array, if not, convert it to an array
+        return Array.isArray(parsedData) ? parsedData : [parsedData];
+    } catch (error) {
+        // Handle the case where parsing fails (e.g., storedData is not valid JSON)
+        console.error('Error parsing stored data:', error);
+        return [];
+    }
+};
 
 
 
+        // Function to update the displayed books based on the search input
+        const updateDisplayedBooks = (searchBox) => {
+            const storeItems = document.getElementById("book-con");
+            const mybook = document.querySelectorAll(".mybook");
+            const bName = storeItems.getElementsByTagName("p");
+
+            for (let i = 0; i < bName.length; i++) {
+                let textValue = bName[i].textContent || bName[i].innerHTML;
+                if (textValue.toUpperCase().includes(searchBox)) {
+                    mybook[i].style.display = "";
+                } else {
+                    mybook[i].style.display = "none";
+                }
+            }
+        };
+
+ // Search function
+const search = () => {
+    const searchBox = document.getElementById("serachInput").value;
+    
+    if (searchBox) {
+        const searchBoxUpperCase = searchBox.toUpperCase();
+        const storedData = getStoredData();
+
+        // Check if storedData is an array
+        if (Array.isArray(storedData)) {
+            // Filter stored data based on the search input
+            const filteredData = storedData.filter((book) =>
+                book && book.title && book.title.toUpperCase().includes(searchBoxUpperCase)
+            );
+
+            // Update displayed books based on the filtered data
+            updateDisplayedBooks(searchBoxUpperCase);
+        } else {
+            console.error('Stored data is not an array.');
+        }
+    }
+};
 
 
 
+// Function to perform a "soft" sign-out (clear specific items)
+function signOut() {
+    const myDatabase = localStorage.getItem("user")
+    const newDatabase = myDatabase.filter((db)=>{
+        
+    })
 
-  window.history.pushState(null, '', location.href);
+    // Optionally set a flag or value indicating the user is signed out
+    localStorage.setItem("isLoggedIn", "false");
 
-const fetchBookApi = async() => {
-    const response = await fetch('https://openlibrary.org/subjects/love.json');
-  const data = await response.json();
+    // Redirect or perform other actions as needed
+    window.location.reload();  // For example, reload the page
+}
 
-  console.log(data); 
-  data.works.forEach(elem => {
-    const booksCon = document.getElementById("book-con");
-    booksCon.innerHTML += `
-   <div class="book-box">
-            <div class="book-cont">
-                <div id="book">
-                    <img src="https://covers.openlibrary.org/b/id/${elem.cover_id}-M.jpg">
-                </div>
-                
-            </div>
-            <div class="book-info">
-                        <p>${elem.title}</p>
-                    </div>
-
-    </div>
-    `
-  });
-} 
-
-fetchBookApi()
-
-
-
-  </script>
-
-     
-
+    </script>
 </body>
 </html>

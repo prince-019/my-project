@@ -10,85 +10,75 @@
 </head>
 <body>
     <div>
-        <div id="toastbox">
-          
-        </div>
+        <div id="toastbox"></div>
         <div class="logo">
             <button id="logo">Readwave</button>
         </div>
-            <div class="wrapper">
-                <form action=""> 
-           
-                    <div class="hb">
+        <div class="wrapper">
+            <form>
+                <div class="hb">
                     <h1>Login</h1>
-                    </div>
-                    <div class="input-box">
-                        <input type="text" id="fname" name="fname" placeholder="username"><br>
-                    </div>
-                    <div class="input-box">
-                        <input type="password" id="pwd" name="pwd" placeholder="password">
-                    </div>
-                    <button type="button" class="btn" onclick="saveData();"> Login</button>
-                    <div class="register-link">
-                        <p>Dont have an accoount? <a href="./signup.html">Register</a></p>
-                    </div>
-                </form>
-            </div>
-</div>
-</body>
+                </div>
+                <div class="input-box">
+                    <input type="text" id="fname" name="fname" placeholder="username"><br>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="pwd" name="pwd" placeholder="password">
+                </div>
+                <button type="button" class="btn" onclick="login()">Login</button>
+                <div class="register-link">
+                    <p>Don't have an account? <a href="./signup.html">Register</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
 
-<script>
-  function displayToast(message, style, icon) {
-    const toastbox = document.getElementById("toastbox");
-    const toast = document.createElement("div");
-    toast.className = style;
-    toast.innerHTML = `<i class="${icon}"></i>${message}`;
-    toastbox.appendChild(toast);
+    <script>
+        function displayToast(message, style, icon) {
+            const toastbox = document.getElementById("toastbox");
+            const toast = document.createElement("div");
+            toast.className = style;
+            toast.innerHTML = `<i class="${icon}"></i>${message}`;
+            toastbox.appendChild(toast);
 
-    setTimeout(() => {
-        toast.remove();
-    }, 3000);
-}
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
 
-function saveData() {
-    let name, password;
-    name = document.getElementById("fname").value;
-    password = document.getElementById("pwd").value;
-    let dataBase = JSON.parse(localStorage.getItem("user"));
+        function login() {
+            try {
+                const name = document.getElementById("fname").value;
+                const password = document.getElementById("pwd").value;
+                const storedData = localStorage.getItem("user") || "[]";
+                const dataBase = JSON.parse(storedData);
 
-    if (!name || !password) {
-        displayToast("Please fill in your details", "toast1", "fa-circle-check succ");
-    } else if (dataBase) {
-        let userFound = false; // Initialize a flag to track if the user is found.
+                if (!name || !password) {
+                    displayToast("Please fill in your details", "toast1", "fa-circle-check succ");
+                } else {
+                    const user = dataBase.find(user => user.fname === name && user.pwd === password);
 
-        for (let i = 0; i < dataBase.length; i++) {
-            if (name === dataBase[i].fname && password === dataBase[i].pwd) {
-                displayToast("Login successful", "toast1", "fa-circle-check succ");
-                setTimeout(() => {
-                window.location.href = "Library.html";
-            }, 2000);
-                userFound = true; // Set the flag to true.
-                break; // Exit the loop since the user is found.
+                    if (user) {
+                        displayToast("Login successful", "toast1", "fa-circle-check succ");
+                        setTimeout(() => {
+                            window.location.href = "Library.html";
+                        }, 2000);
+                    } else {
+                        displayToast("Name not found or incorrect password", "toast2", "fa-circle-xmark fai");
+                    }
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                // Handle the error as needed
             }
         }
 
-        if (!userFound) {
-            displayToast("Name not found or incorrect password", "toast2", "fa-circle-xmark fai");
-        }
-    } else {
-        displayToast("User database not found", "toast3", "fa-circle-exclamation war");
-    }
-}
+        const logo = document.getElementById("logo");
+        logo.addEventListener('click', () => {
+            window.location.href = "../index.html";
+        });
+    </script>
 
-
-const logo = document.getElementById("logo");
-logo.addEventListener('click',function(){
-    window.location.href = "../index.html";
-})
-
-</script>
-
-<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-
-
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</body>
 </html>

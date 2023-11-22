@@ -14,39 +14,26 @@
 <body>
     <!-- container-fluid start -->
     <!-- nav-sec -->
+    <div class="mid-sec">
+        <div class="search">
+            <form action="">
+                <input type="text" id="serachInput" class="input" placeholder="Search Book" onkeydown="search()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </form>
         </div>
-        <div class="mid-sec">
-            <div class="search">
-                <input type="text" class="input" placeholder="search">
-            </div>
-           
-            <div class="link"> 
-                <divn class="users">
-                    <p>
-                        <script>
-                            const userData = JSON.parse(localStorage.getItem("user"));
-                   if (userData && userData.length > 0) {
-                       const fname = userData[0].fname;
-                       document.write(  fname);
-                   } else {
-                       console.log("User data not found in local storage");
-                   }
-                       </script>
-                  
-                  <div class="usericon">
-                    <p><i class="fa-solid fa-user"></i></p>
-                   </div>
-              </p>
-              <button class="bots"onclick="signout();" >
-                <i class="fa-solid fa-arrow-right-from-bracket"></i> Signout
+        <div class="cover">
+            <button><ion-icon name="apps" class="filter-icon"></ion-icon> cover</button>
+        </div>
+        <div class="filter">
+            <button><ion-icon name="funnel" class="filter-icon"></ion-icon> filter</button>
+        </div>
+        <div class="profile">
+            <button>
+                <ion-icon name="contact" class="user-icon"></ion-icon>
+                <p onclick="getNameFromLocalStorage()"></p>
             </button>
-            
-                </div>
-                
-            </div>
-        </div> 
-        
-     </div>
+        </div>
+    </div>
 
         <!-- nav-sec end -->
 
@@ -62,13 +49,13 @@
         <div class="links"><button id="Favourite"><span class="material-symbols-outlined">
             favorite
             </span> Favourite </button></div>
-            <div class="lin"> <button id="read1"><span class="material-symbols-outlined">
-                menu_book
-                </span></ion-icon>  Reading Now  </button> </div>
-            <div class="links"><button id="read2"><span class="material-symbols-outlined">
-                alarm
-                </span> To Read  </button></div>
-            <div class="links"> <button id="profile"><i class="fa-regular fa-user"></i> Profile</button> </div>
+            <div class="lin"> <button id="read1"> <i class="fa-regular fa-bookmark"></i>  Reading Now </button> </div>
+            <div class="links"><button id="read2">  <i class="fa-solid fa-link-slash"></i> Read  </button></div>
+                <div class="links">
+                    <button id="profile" onclick="signOut()">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out
+                    </button>
+                </div>
 </div>
 
 
@@ -93,21 +80,17 @@
         });
 
         read1.addEventListener("click", function(){
-            window.location.href = "Reading.html"
+            window.location.href = "reading.html"
         });
         
         read2.addEventListener("click", function(){
-            window.location.href = "Read.html"
+            window.location.href = "read.html"
         });
         
 
-        pro.addEventListener("click", function(){
-            window.location.href = "profile.html"
-        });
+    
 
-        function profile(){
-            window.location.href = "profile.html";
-        }
+      
 
 window.history.pushState(null, '', location.href);
 window.onpopstate = function () {

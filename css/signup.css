@@ -185,23 +185,25 @@ button{
     color: green;
     box-shadow: 0px 0px 3px  rgb(0, 0, 0,0.3);
     height: 50px;
-    width: 400px;
+    width: 300px;
     display: flex;
     padding-left: 5px;
     align-items: center;
     border-radius: 7px;
     font-family: font-3;
-    font-size: 13px;
+    font-weight: lighter;
+    font-size: 16px;
     position: relative;
 }
 
 .toast1::after{
     content: '';
     position: absolute;
-    top: 42px;
+    top: 47px;
     left:0 ;
     height: 4px;
     width: 100%;
+    border-radius: 7px;
     background: green;
     animation: anim 3s linear forwards;
 }

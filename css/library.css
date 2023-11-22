@@ -21,50 +21,58 @@
     height: 100vh;
  }
  .blur{
+    display: none;
     position: relative;
     background: rgb(0, 0, 0 0.1);
     width: 100%;
     height: 100vh;
     z-index: 100;
-    backdrop-filter: blur(4  npx);
+    backdrop-filter: blur(40 100px);
+ }
+ button{
+    cursor: pointer;
  }
  
- 
- .input{
-    
-    width: 500px;
-    height: 50px;
-    font-size: 18px;
-    background: #cccaca;
-    color: #ffff;
-    padding-left: 20px;
-    font-family:font-3 ;
-    font-weight: lighter;
-    border: none;
-    box-shadow: 0px 0px 3px  rgba(209, 207, 207, 0.3);
-    border-bottom-left-radius: 7px;
-    border-top-left-radius: 7px;
-    outline: none;
- }
 
  .search{
     display: flex;
     align-items: center;
- }
- #searchButton{
-    width: 100px;
-    height: 50px;
-    font-size: 20px;
-    background: green;
-    color: #ffff;
-    margin-left: -3px;
-    font-family:font-1 ;
-    font-weight: 600;
+    width: 750px;
+    height: 60px;
+    font-size: 18px;
+    background: #e6e6e6;
+    color: #000;
+    padding-left: 20px;
+    padding-right: 20px;
     border: none;
     box-shadow: 0px 0px 3px  rgba(209, 207, 207, 0.3);
-    border-bottom-right-radius: 7px;
-    border-top-right-radius: 7px;
+    border-radius: 7px;
+    outline: none;
  }
+ form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    border: none;
+    
+ }
+ .search  input{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-family:font-2;
+    font-weight: lighter;
+    font-size: 16px;
+    color: rgba(10, 10, 10, 0.925);
+ }
+ 
  .logo{
     margin-top: 40px;
     margin-left: 20px;
@@ -81,25 +89,97 @@
 
 .mid-sec{
     position: absolute;
-    left: 360px;
+    left: 290px;
     top: 20px;
 
 
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
     flex: 1;
 }
+.cover{
+    display: flex;
+    align-items: center;
+
+
+    width: 100px;
+    height: 35px;
+    margin-left: 20px;
+    border-radius: 7px;
+}
+.cover button{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: green;
+    border: none;
+    color: #fff;
+    font: 16px;
+    font-family: font-3;
+    border-radius: 7px;
+}
+.filter{
+    display: flex;
+    align-items: center;
+
+
+    width: 100px;
+    height: 35px;
+    margin-left: 20px;
+    
+}
+.filter-icon {
+    font-size: 17px;
+}
+.filter button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: green;
+    border: none;
+    color: #fff;
+    font: 17px;
+    font-family: font-3;
+    border-radius: 7px;
+}
+.profile{
+    display: flex;
+    align-items: center;
+
+
+    width: 70px;
+    height: 70px;
+    margin-left: 30px;
+    margin-left: 30px;
+  
+}
+.profile button{
+ width: 100%;
+ height: 100%;  
+ background: #e6e6e6;
+ border: none;
+ border-radius: 170px;
+ 
+}
+.user-icon{
+  color:#242424d3;
+  font-size: 30px;
+}
 .book-sec{
     position: absolute;
-    left: 360px;
+    left: 290px;
     top: 90px;
     z-index: 0;
 }
 
 .book-con{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     gap: 40px;
     row-gap: 40px;
     margin-top: 30px;
@@ -110,8 +190,8 @@
 .book-cont{
     display: flex;
     justify-content: center;
-    width:210px;
-    height: 300px;
+    width:150px;
+    height: 200px;
     background: #ebe9e9a9;
     border-radius: 7px;
 
@@ -124,11 +204,14 @@
    
 }
 #book img{
-    width:210px;
-    height: 300px; 
+    width:150px;
+    height: 200px; 
     border-radius: 10px;
 }
 
+.book-cont:hover {
+    filter: brightness(0.8); 
+}
 
 .book-info{
     background: #ebe9e946;
@@ -136,17 +219,76 @@
     border-radius: 7px;
     height: 30px;
     margin-top: 10px;
-    width: 200px;
+    width: 150px;
 }
 .book-info p{
     display: flex;
     justify-content: center;
     text-align: center;
-    font-size: 20px;
+    font-size: 16px;
     font-family: font-2;
     color: black;
 }
 
+.blu {
+    display: none;
+    position: fixed;
+    background: rgba(148, 148, 148, 0.281);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px); 
+    width: 100vw;
+    height: 100vh;
+    z-index: 111;
+   
+   
+}
+.modal{
+   width: 300px;
+   height: 200px;
+   background: #ffffffc5; 
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+   border-radius: 7px;
+   z-index: 1111;
+   background-image:url(../asset/images/depositphotos_92573570-stock-photo-blur-green-nature-defocused-background.jpg) ;   
+   background-blend-mode: lighten;
+}
+
+.modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:  10px;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    height: 200px;
+
+}
+.modal-content h2{
+    font-size: 16px;
+    font-family:font-3;
+    font-weight: bold;
+    color: #000;
+}
+.subtitle{
+    color: blue;
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 16px;
+    border: 1px solid green;
+    background: green;
+    width: 80px;
+    height: 30px;
+    border-radius: 2px;
+    text-align: center;
+    font-family: font-3;
+    color: #ffffff;
+    z-index: 112;
+}
 
 /* sidebar start */
 .sidebar{
@@ -208,7 +350,7 @@
     display: flex;
     align-items: center;
     color: #ffff;
-    font-size:18px;
+    font-size:16px;
     text-decoration: none;
     font-weight: 600;
     border: none;
@@ -240,25 +382,7 @@
     margin-right: 4px;
     
 }
-
-.bots{
-    background: none;
-    border: none;
-    color: #ffff;
-    background: green;
-    height: 40px;
-    margin-left: 5px;
-    width: 100px;
-    border-radius: 7px;
-    font-weight: 600;
-    font-family: font-2;
-    font-size: 15px;
-}
-
-   
-.bots:hover{
-    color: rgb(22, 29, 22);
-}
+ 
 .users{
     display: flex;
     align-items: center;
